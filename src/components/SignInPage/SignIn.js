@@ -1,8 +1,6 @@
 import React from 'react'
-import {Link} from 'react-router-dom';
 
-
-const SignIn = () => {
+const SignIn = ({onHome}) => {
   return (
         <article class="mw5 center bg-dark-grey br3 pa3 pa4-ns mv3 ba b--black-10">
             <div>
@@ -20,11 +18,10 @@ const SignIn = () => {
                     </div>
                     </fieldset>
                     <div class="">
-                    <Link to='/dashboard'><input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Sign in" /></Link>
+                    <a href='#0'><input onClick={onHome} class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Sign in" /></a>
                     </div>
                     <div class="lh-copy mt3">
-                    <Link to='/' class="f6 link dim black db">Sign up</Link>
-                    <a href="#0" class="f6 link dim black db">Forgot your password?</a>
+                    <a href='#0' class="f6 link dim black db">Register</a>
                     </div>
                 </form>
                 </main>

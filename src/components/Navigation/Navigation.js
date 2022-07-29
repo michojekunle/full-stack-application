@@ -1,11 +1,9 @@
 import React from 'react'
-import {Link} from 'react-router-dom';
 
-
-const Navigation = () => {
+const Navigation = ({onSignIn}) => {
   return (
         <nav style={{display: 'flex', justifyContent: 'flex-end' }}>
-            <Link to='/'><p className='f3 pa3 dim black pointer link underline'>Sign Out</p></Link>
+            <p onClick={onSignIn} className='f3 pa3 dim black pointer link underline'>Sign Out</p>
         </nav>
   )
 }
