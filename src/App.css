@@ -36,6 +36,22 @@
   animation: animTop .7s ease;
 }
 
+/* .opacita1 {
+  animation: opacita .5s ease ;
+}
+
+.opacita2 {
+  animation: opacita .5s ease 1s;
+}
+
+.opacita3 {
+  animation: opacita .5s ease 3s;
+}
+
+.opacita4 {
+  animation: opacita .5s ease 4s;
+} */
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -47,13 +63,13 @@
 
 @keyframes animLeft {
   from {
-    position: absolute;
-    left: -100%;
+    /* position: absolute; */
+    margin-left: -100%;
   }
 
   to {
     position: absolute;
-    left:45%;
+    margin-left:45%;
   }
 }
 
@@ -75,10 +91,10 @@
 
 @keyframes opacita {
   from {
-
+    opacity: 0;
   }
   to {
-    
+    opacity: 0;
   }
 }
 
