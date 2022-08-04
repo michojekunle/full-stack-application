@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import SignIn from './components/SignInPage/SignIn';
 import Navigation from './components/Navigation/Navigation';
 import Logo from './components/Logo/Logo';
@@ -14,6 +14,12 @@ function App() {
     home: false,
     register: false,
   });
+
+  //connecting to server 
+  useEffect(() => {
+    fetch('http://localhost:3002/').then(res => res.json()).then(data => console.log(data))
+  }, [])
+  
 
   const handleSignIn = () => {
     setRoute({home:false, signin:true, register: false})
