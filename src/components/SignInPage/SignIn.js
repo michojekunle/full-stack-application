@@ -15,6 +15,7 @@ const SignIn = ({onHome, onRegister}) => {
     }
 
     const onSubmitSignIn = () => {
+
         fetch('http://localhost:3002/signin', {
             method: 'post',
             headers: { "Content-Type": "Application/json"},
@@ -22,15 +23,17 @@ const SignIn = ({onHome, onRegister}) => {
                 email: signInEmail,
                 password: signInPassword
             })
-        }) .then( res => res.json()).then(data => {
-            if(data === 'success') {
-                onHome();
-            } 
-            else {
+        }) 
+            .then( (res) => res.json())
+            .then((data) => {
+            
+            if(data === 'SUCCESS') {
+                    onHome();
+                } 
+                else {
 
-            }
-
-        })
+                }
+            })
     }
 
   return (
