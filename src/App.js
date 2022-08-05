@@ -53,9 +53,12 @@ function App() {
         method: 'put',
         headers: { "Content-Type": "Application/json"},
         body: JSON.stringify({
-          
-            email: "",
-            password: ""
+            id: user.id
+        })
+      }).then((res)=> res.json())
+      .then(count => {
+        setUser({
+          entries: count,
         })
       })
     }
