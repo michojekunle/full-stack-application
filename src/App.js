@@ -57,9 +57,9 @@ function App() {
         })
       }).then((res)=> res.json())
       .then(count => {
-        setUser({
-          entries: count,
-        })
+        setUser(Object.assign(
+          user,  { entries: count }
+        ))
       })
     }
   }
@@ -89,7 +89,7 @@ function App() {
           <>
             <Navigation onSignIn={handleSignIn} />
             <Logo />
-            <Rank username={user.name} />
+            <Rank username={user.name} count={user.entries}/>
             <LinkForm userEntries={user.entries} handleBtnSubmit={handleBtnSubmit} handleInputChange={handleInputChange} submitted={submitted} submittedLink={submittedLink} />
           </>
         )}
