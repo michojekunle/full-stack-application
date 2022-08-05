@@ -1,23 +1,8 @@
 import React from 'react'
 import './LinkForm.css';
-import { useState } from 'react';
 
-const LinkForm= () => {
-  const [input, setInput] = useState('');
-  const [submittedLink, setSubmittedLink] = useState('');
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleInputChange = (e) => {
-    console.log(e.target.value);
-    setInput(e.target.value);
-  }
-  
-  const handleBtnSubmit = () => {
-    console.log('click');
-    document.querySelector('input').value='';
-    setSubmittedLink(input);
-    setSubmitted(true);
-  }
+const LinkForm= ( { handleBtnSubmit, handleInputChange, submitted, submittedLink } ) => {
+ 
 
   return (
     <div>

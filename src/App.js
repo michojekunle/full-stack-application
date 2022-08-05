@@ -15,6 +15,52 @@ function App() {
     register: false,
   });
 
+  const [user, setUser] = useState({
+    id:"",
+    name:"",
+    email:"",
+    entries:"",
+    joined: "",
+  })
+
+  const loadUser = (user) => {
+    setUser({
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      entries: user.entries,
+      joined: user.joined
+    });
+    console.log(user );
+  }
+  const [input, setInput] = useState('');
+  const [submittedLink, setSubmittedLink] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleInputChange = (e) => {
+    console.log(e.target.value);
+    setInput(e.target.value);
+  }
+  
+  const handleBtnSubmit = () => {
+    console.log('click');
+    document.querySelector('input').value='';
+    setSubmittedLink(input);
+    setSubmitted(true);
+
+    if(input.length !== 0) {
+      fetch('http://localhost:3002/link', {
+        method: 'put',
+        headers: { "Content-Type": "Application/json"},
+        body: JSON.stringify({
+          
+            email: "",
+            password: ""
+        })
+      })
+    }
+  }
+
   //connecting to server 
   useEffect(() => {
     fetch('http://localhost:3002/').then(res => res.json()).then(data => console.log(data))
@@ -34,14 +80,14 @@ function App() {
   }
   return (
       <div className="app">
-        {route.signin && <SignIn onHome={handleHome} onRegister={handleRegister}/>}
-        {route.register && <Register onHome={handleHome} onSignIn={handleSignIn}/>}
+        {route.signin && <SignIn onHome={handleHome} onRegister={handleRegister} loadUser={loadUser}/>}
+        {route.register && <Register onHome={handleHome} onSignIn={handleSignIn} loadUser={loadUser}/>}
         {route.home && (
           <>
             <Navigation onSignIn={handleSignIn} />
             <Logo />
-            <Rank />
-            <LinkForm />
+            <Rank username={user.name} />
+            <LinkForm userEntries={user.entries} handleBtnSubmit={handleBtnSubmit} handleInputChange={handleInputChange} submitted={submitted} submittedLink={submittedLink} />
           </>
         )}
 

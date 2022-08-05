@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const SignIn = ({onHome, onRegister}) => {
+const SignIn = ({onHome, onRegister, loadUser}) => {
     const [signInEmail, setSignInEmail] = useState('');
     const [signInPassword, setSignInPassword] = useState('');
     const [msgAlert, setMsgAlert] = useState(false);
@@ -28,10 +28,11 @@ const SignIn = ({onHome, onRegister}) => {
             })
         }) 
             .then( (res) => res.json())
-            .then((data) => {
+            .then((user) => {
             
-            if(data === 'SUCCESS') {
+            if(user.id) {
                     e.preventDefault();
+                    loadUser(user);
                     onHome();
                     setMsgAlert(false);
                 } 
