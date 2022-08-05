@@ -17,6 +17,8 @@ const SignIn = ({onHome, onRegister}) => {
 
     const onSubmitSignIn = (e) => {
 
+        e.preventDefault();
+
         fetch('http://localhost:3002/signin', {
             method: 'post',
             headers: { "Content-Type": "Application/json"},
@@ -31,6 +33,7 @@ const SignIn = ({onHome, onRegister}) => {
             if(data === 'SUCCESS') {
                     e.preventDefault();
                     onHome();
+                    setMsgAlert(false);
                 } 
                 else {
                     setMsgAlert(true);
@@ -42,18 +45,18 @@ const SignIn = ({onHome, onRegister}) => {
         <article className="mw5 leftAnim center bg-dark-grey br3 pa3 pa4-ns mv3 ba b--black-10">
             <div>
                 <main className="pa4 black-80 center">
-                <form className="measure center flex-column" method="get">
+                <form className="measure center flex-column" method="get" onSubmit={onSubmitSignIn} >
                     <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
                     <legend className="f4 fw6 ph0 mh0 center">Sign In</legend>
 
-{
-    msgAlert && (
-    <div className="alert">
-        <h3>Username or password incorrect.</h3>
-    </div>
-    )
-}
-        
+                    {
+                        msgAlert && (
+                        <div className="alert">
+                            <h3>Username or password incorrect.</h3>
+                        </div>
+                        )
+                    }
+
                     <div className="mt3 center flex-column">
                         <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
                         <input className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="email" onChange={onEmailChange} name="email-address"  id="email-address" />
@@ -64,7 +67,7 @@ const SignIn = ({onHome, onRegister}) => {
                     </div>
                     </fieldset>
                     <div className="">
-                    <a href='#0'><input onClick={onSubmitSignIn} className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Sign in" /></a>
+                    <a href='#0'><input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Sign in" /></a>
                     </div>
                     <div class="lh-copy mt3">
                     <a href='#0' onClick={onRegister} className="f6 pointer link dim black db">Register</a>

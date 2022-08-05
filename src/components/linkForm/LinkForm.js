@@ -14,6 +14,7 @@ const LinkForm= () => {
   
   const handleBtnSubmit = () => {
     console.log('click');
+    document.querySelector('input').value='';
     setSubmittedLink(input);
     setSubmitted(true);
   }
