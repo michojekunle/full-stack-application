@@ -56,17 +56,17 @@ const Register = ( {onSignIn, onHome, loadUser} ) => {
                     <legend className="f4 fw6 ph0 mh0 center">Register</legend>
                     <div className="mt3 center flex-column">
                         <label className="db fw6 lh-copy f6" htmlFor="name">Name</label>
-                        <input className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="name" name="name"  id="name" onChange={onNameChange} />
+                        <input className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" required type="name" name="name"  id="name" onChange={onNameChange} />
                     </div>
                   
                     <div className="mt3 center flex-column">
                         <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
-                        <input className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="email" name="email-address"  id="email-address" onChange={onEmailChange}/>
+                        <input className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" required type="email" name="email-address"  id="email-address" onChange={onEmailChange}/>
                     </div>
 
                     <div className="mv3 center flex-column">
                         <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
-                        <input className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="password" name="password"  id="password" onChange={onPasswordChange} />
+                        <input className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" required type="password" name="password"  id="password" onChange={onPasswordChange} />
                     </div>
                     </fieldset>
                     <div className="">
